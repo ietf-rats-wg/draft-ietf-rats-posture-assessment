@@ -3,7 +3,7 @@ v: 3
 
 title: Remote Posture Assessment for Systems, Containers, and Applications at Scale
 abbrev: RPASCA
-docname: draft-ietf-rats-posture-assessment
+docname: draft-ietf-rats-posture-assessment-latest
 cat: std
 consensus: yes
 submissiontype: IETF

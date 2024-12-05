@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-03T00:58:08.007351+00:00",
+  "timestamp": "2024-12-05T00:57:53.530174+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -49,6 +49,95 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDONMUyhM6h0GOp",
+      "title": "Editorial",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/issues/1",
+      "state": "OPEN",
+      "author": "PieterKas",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 3:\r\n\r\nunder stand -> understand",
+      "createdAt": "2024-12-03T11:44:28Z",
+      "updatedAt": "2024-12-03T11:44:28Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDONMUyhM6h0KX8",
+      "title": "Add preference for CIS Container benchmarks",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/issues/2",
+      "state": "OPEN",
+      "author": "PieterKas",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Is there a reference that can be added for the CIS container security benchmarks? (e.g. https://www.cisecurity.org/benchmark/docker?utm_source=chatgpt.com, https://www.cisecurity.org/benchmark/kubernetes?utm_source=chatgpt.com)",
+      "createdAt": "2024-12-03T11:50:48Z",
+      "updatedAt": "2024-12-03T14:14:50Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, thanks. We need to add in references!",
+          "createdAt": "2024-12-03T14:14:48Z",
+          "updatedAt": "2024-12-03T14:14:48Z"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "I_kwDONMUyhM6h0Mnz",
+      "title": "Claims for Container Security Benchmarks",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/issues/3",
+      "state": "OPEN",
+      "author": "PieterKas",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Will this specification define claim values based on container security benchmarks, or is the expectation that those values are defined in the MPS registry?",
+      "createdAt": "2024-12-03T11:54:46Z",
+      "updatedAt": "2024-12-03T14:14:13Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The expectation is that those would be in the registry. The reason being is that if you look at what was needed for the TCG Reference Integrity Metrics, each vendor used that single policy and their defined \"Golden values\" varied. The reason is that firmware was different for each vendor based on their implementation. They may have varied underlying hardware and they may update versions over time. The types of information checked for each would be the same with variances in the configuration settings and measurements.",
+          "createdAt": "2024-12-03T14:14:12Z",
+          "updatedAt": "2024-12-03T14:14:12Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "I_kwDONMUyhM6h0Rhe",
+      "title": "Multiple Benchmarks",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/issues/4",
+      "state": "OPEN",
+      "author": "PieterKas",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Is the expectation that multiple benchmarks will be included in a single MPS, or will there be multiple MPS claims, each with their benchmark (e.g. an array of MPS claims).",
+      "createdAt": "2024-12-03T12:03:05Z",
+      "updatedAt": "2024-12-03T14:09:49Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The CIS Benchmarks and DISA STIGS would be quite large to combine. The current intention is to have an MPS represent a single Benchmark and potentially portions of a Benchmark if it makes more sense for some to be broken up into sections to test and complete comparison verifications.",
+          "createdAt": "2024-12-03T14:09:36Z",
+          "updatedAt": "2024-12-03T14:09:49Z"
+        }
+      ]
+    }
+  ],
   "pulls": []
 }

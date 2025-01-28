@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-26T00:53:38.243382+00:00",
+  "timestamp": "2025-01-28T00:52:05.938707+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -150,9 +150,17 @@
       "labels": [],
       "body": "### General thoughts\nIn general, the problem statement is not yet clear to me. I think a figure in Sec. 1 and defining some terms in Sec. 2 would help. \n\nIn the scope of this document, I would like to understand:\n\n- What is the need/motivation for attestation?\n- Who is attesting to whom? \n- Is it local attestation or remote attestation? \n- Compliance is mentioned multiple times in the draft, and I believe there is no \"global\" compliance; compliance is with reference to a specific regulation. It remains unclear to me which regulation is intended. \n- I am specifically concerned about protocols. Where in this whole assessment process do the protocols get checked? \n\n### Specific questions\nNote: Emphasis in the quoted text is my own \n\n> By using **policy** and **measurement sets** that may be offered at various assurance levels, **local assessment of evidence** can be performed to continuously assess **compliance**.\n\n- Which policy is this related to: policy for Evidence or Attestation Results? \n- measurement sets: are these Claims or Reference Values? If the former, does it include runtime measurements or just loadtime measurements?\n- local assessment of evidence: is the draft about local attestation or remote attestation?\n- compliance: compliance with what?\n\n> this kind of **compliance**\n\ncompliance with what?\n\n> The **local** system or server host performs the assessment of posture and remediation.\n\nSeems local attestation to me, I am not sure why remote attestation is mentioned in the draft. \n\n> This document describes a method to use existing remote attestation formats and **protocols**.\n\nThis was very interesting for me. But unfortunately, there is no other mention of protocols in the rest of the document. ",
       "createdAt": "2025-01-25T20:03:35Z",
-      "updatedAt": "2025-01-25T20:03:35Z",
+      "updatedAt": "2025-01-27T17:18:56Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Usama,\n\nThank you for your thoughtful questions!\n\nyou are correct that there are 2 levels of attestation, local to assess policy and then an attestation that is remote to convey a set of results against a defined policy or configuration level. Today, this activity happens, but it does not scale and requires lots of resources. This is the same problem the Huawei proposal is trying to solve, but theirs is with a different architectural pattern. This pattern also considers scale, but factors in transparency required by auditors.\n\nThis is setting a general capability with a registry to allow for any defined policy or regulation to be attested using evidence and verification of evidence. Then for the remote attestation, the evidence is assessed to see if all of the conditions are met to fulfill the compliance requirements, verifying sets of local attestations, then attesting to the result. Conveying the smaller result in a way that can be understood due to the registry and defined expectations allows for a small message to be sent. It is not efficient to perform full assessments to a large policy on the wire for a data center with thousands of systems. Huawei approaches this by sending one result for many systems. This posture assessment draft instead sends a small message that links back to the local attestation evidence providing a transparent trail of evidence required for audits to meet both requirements.\n\nWhich protocols? Are you asking because of TLS Attestation?\n\nFor your question on measurements, yes, we will want to test both at load time and at runtime.\n\nI hope this clarifies further and I'm happy to get on a call if helpful.",
+          "createdAt": "2025-01-27T17:18:55Z",
+          "updatedAt": "2025-01-27T17:18:55Z"
+        }
+      ]
     }
   ],
   "pulls": []

@@ -19,8 +19,8 @@ venue:
   type: "Working Group"
   mail: "rats@ietf.org"
   arch: https://mailarchive.ietf.org/arch/browse/rats/
-  github: kme/draft-moriarty-attestationsets
-  latest: https://kme.github.io/draft-moriarty-attestationsets/draft-moriarty-rats-posture-assessment.html
+  github: ietf-rats-wg/draft-moriarty-attestationsets
+  latest: https://ietf-rats-wg.github.io/draft-moriarty-attestationsets/draft-moriarty-rats-posture-assessment.html
 
 author:
 - name: Kathleen M. Moriarty
@@ -37,14 +37,8 @@ author:
   region: NY
   country: USA
 - name: A.J. Stein
-  org: National Institute of Standards and Technology
-  abbrev: NIST
   email: ajstein.standards@gmail.com
   uri: https://orcid.org/0000-0003-1092-2642
-  street: 100 Bureau Drive
-  code: '20899'
-  city: Gaithersburg
-  region: MD
   country: USA
 - name: Chandra Nelogal
   org: Dell Technologies

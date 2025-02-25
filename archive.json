@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-23T00:57:37.439089+00:00",
+  "timestamp": "2025-02-25T00:54:39.944186+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -170,5 +170,88 @@
       ]
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 6,
+      "id": "PR_kwDONMUyhM6MOpvf",
+      "title": "Update draft metadata and AJ's contact info",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/6",
+      "state": "OPEN",
+      "author": "aj-stein",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-24T04:41:06Z",
+      "updatedAt": "2025-02-24T04:41:07Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "baseRefName": "main",
+      "baseRefOid": "fc0e00ab52188c31bd4cfd7b5ef0025c50189f86",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "headRefName": "update-metadata-aj-contact-info",
+      "headRefOid": "aa17433a1f3dc8fe4d718734b051f88c99d04b06",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDONMUyhM6MOq6l",
+      "title": "Update draft-ietf-rats-posture-assessment.md",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/7",
+      "state": "OPEN",
+      "author": "aj-stein",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "aj-stein"
+      ],
+      "labels": [],
+      "body": "Add CIS and STIG benchmarks as informative references. Closes KME/draft-moriarty-rats-posture-assessment#22.",
+      "createdAt": "2025-02-24T04:46:02Z",
+      "updatedAt": "2025-02-24T04:46:03Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "baseRefName": "main",
+      "baseRefOid": "fc0e00ab52188c31bd4cfd7b5ef0025c50189f86",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "headRefName": "22-stig-cis-refs",
+      "headRefOid": "057f3c39e7a1d9284e2e3c30453558f74e8ccb9b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDONMUyhM6MOs3G",
+      "title": "Update IANA feedback on IANA considerations section",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/8",
+      "state": "OPEN",
+      "author": "aj-stein",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "aj-stein"
+      ],
+      "labels": [],
+      "body": "Closes KME/draft-moriarty-rats-posture-assessment#15.",
+      "createdAt": "2025-02-24T04:54:05Z",
+      "updatedAt": "2025-02-24T04:54:15Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "baseRefName": "main",
+      "baseRefOid": "fc0e00ab52188c31bd4cfd7b5ef0025c50189f86",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "headRefName": "15-iana-registry-fixes",
+      "headRefOid": "dc3c1b768021b256cd207f2627af272a9e529316",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }

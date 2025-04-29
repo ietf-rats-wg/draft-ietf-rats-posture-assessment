@@ -7,7 +7,7 @@ Internet-Draft                     Transforming Information Security LLC
 Intended status: Standards Track                              M. Wiseman
 Expires: 31 October 2025                                 Beyond Identity
                                                               A.J. Stein
-                                                                    NIST
+                                                                        
                                                               C. Nelogal
                                                                     Dell
                                                            29 April 2025
@@ -34,11 +34,11 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://kme.github.io/draft-moriarty-attestationsets/draft-moriarty-
-   rats-posture-assessment.html.  Status information for this document
-   may be found at https://datatracker.ietf.org/doc/draft-ietf-rats-
-   posture-assessment/.
+   The latest revision of this draft can be found at https://ietf-rats-
+   wg.github.io/draft-moriarty-attestationsets/draft-moriarty-rats-
+   posture-assessment.html.  Status information for this document may be
+   found at https://datatracker.ietf.org/doc/draft-ietf-rats-posture-
+   assessment/.
 
    Discussion of this document takes place on the Remote ATtestation
    ProcedureS (rats) Working Group mailing list (mailto:rats@ietf.org),
@@ -46,7 +46,7 @@ About This Document
    Subscribe at https://www.ietf.org/mailman/listinfo/rats/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/kme/draft-moriarty-attestationsets.
+   https://github.com/ietf-rats-wg/draft-moriarty-attestationsets.
 
 Status of This Memo
 
@@ -565,9 +565,6 @@ Authors' Addresses
 
 
    A.J. Stein
-   National Institute of Standards and Technology
-   100 Bureau Drive
-   Gaithersburg, MD 20899
    United States of America
    Email: ajstein.standards@gmail.com
    URI:   https://orcid.org/0000-0003-1092-2642

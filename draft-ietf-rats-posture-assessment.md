@@ -61,6 +61,8 @@ normative:
   RFC7519:
   RFC9334:
   I-D.ietf-rats-eat:
+  IANA.CWT.Claims: IANA.cwt
+  IANA.JWT.Claims: IANA.jwt
 
 informative:
   RFC8322: ROLIE
@@ -205,7 +207,11 @@ This document does not add security consideration over what has been described i
 
 # IANA Considerations {#iana}
 
-Draft section - authors know more work is needed to properly define the registry and claims. This section is here now to assist in understanding the concepts.
+## Reuse of CBOR and JSON Web Token (CWT and JWT) Claims Registries
+
+Claims defined in this document are a profile of EAT. Like the base claims of EAT, the claims below are compatible with those of CWT and JWT so the CWT and JWT Claims Registries, [IANA.CWT.Claims] and [IANA.JWT.Claims], are re-used. No new IANA registry is created. All EAT claims defined in this document are placed in both registries.
+
+## CWT and JWT Claims Registered by This Document
 
 This document requests the creation of a Measurement and Policy Set (MPS) registry. The MPS registry will contain the names of the Benchmarks, Policy sets, DISA STIGS, controls, or other groupings as a  policy and measurement set that MAY correlate to standards documents containing assurance guidelines, compliance requirements, or other defined claim sets for verification of posture assessment to that MPS. The MPS registry will include the policy definition for specific levels of MPS assurance to enable interoperability between assertions of compliance (or lack thereof) and reporting systems.
 

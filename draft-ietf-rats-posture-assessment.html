@@ -1261,8 +1261,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-posture-assessment-scenario">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-posture-assessment-scenario" class="section-name selfRef">Posture Assessment Scenarios</a>
       </h2>
-<p id="section-3-1">By way of example, the Center for Internet Security (CIS) hosts recommended configuration settings to secure operating systems, applications, and devices in CIS Benchmarks developed with industry experts.
-Attestations aligned to the CIS Benchmarks or other configuration guide such as a DISA STIG could be used to assert the configuration meets expectations.
+<p id="section-3-1">By way of example, the Center for Internet Security (CIS) hosts recommended configuration settings to secure operating systems, applications, and devices in CIS Benchmarks <span>[<a href="#BENCHMARKS" class="cite xref">BENCHMARKS</a>]</span> developed with industry experts.
+Attestations aligned to the CIS Benchmarks or other configuration guide such as one of the Defense Information Systems Agency's Security Technical Implement Guides <span>[<a href="#STIG" class="cite xref">STIG</a>]</span> could be used to assert the configuration meets expectations.
 This has already been done for multiple platforms to demonstrate assurance for firmware according to NIST SP 800-193, Firmware Resiliency Guidelines <span>[<a href="#FIRMWARE" class="cite xref">FIRMWARE</a>]</span>.  In order to scale remote attestation, a single attestation for a set of benchmarks or policies being met with a link to the verification logs from the local assessments, is the evidence that may be sent to the verifier and then the relying party.
 On traditional servers, assurance to NIST SP 800-193 is provable through attestation from a root of trust (RoT), using the Trusted Computing Group (TCG) Trusted Platform Module (TPM) chip and attestation formats. However, this remains local and one knows the policies and measurements have been met if other functions that rely on the assurance are running.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">At boot, policy and measurement expectations are verified against a set of "golden policies" from collected evidence and are verified to meet expected values.  Device identity and measurements can also be attested at runtime.
@@ -1622,6 +1622,10 @@ This document does not add security consideration over what has been described i
 <a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="BENCHMARKS">[BENCHMARKS]</dt>
+        <dd>
+<span class="refTitle">"Center for Internet Security Benchmarks List"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.cisecurity.org/cis-benchmarks">https://www.cisecurity.org/cis-benchmarks</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="FIRMWARE">[FIRMWARE]</dt>
         <dd>
 <span class="refAuthor">Regenscheid, A.</span>, <span class="refTitle">"Platform firmware resiliency guidelines"</span>, <span class="refContent">National Institute of Standards and Technology</span>, <span class="seriesInfo">DOI 10.6028/nist.sp.800-193</span>, <time datetime="2018-05" class="refDate">May 2018</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.sp.800-193">https://doi.org/10.6028/nist.sp.800-193</a>&gt;</span>. </dd>
@@ -1631,8 +1635,12 @@ This document does not add security consideration over what has been described i
 <span class="refTitle">"Redfish Specification Version 1.20.0"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.20.0.pdf">https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.20.0.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8322">[RFC8322]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Field, J.</span>, <span class="refAuthor">Banghart, S.</span>, and <span class="refAuthor">D. Waltermire</span>, <span class="refTitle">"Resource-Oriented Lightweight Information Exchange (ROLIE)"</span>, <span class="seriesInfo">RFC 8322</span>, <span class="seriesInfo">DOI 10.17487/RFC8322</span>, <time datetime="2018-02" class="refDate">February 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8322">https://www.rfc-editor.org/rfc/rfc8322</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="STIG">[STIG]</dt>
+      <dd>
+<span class="refTitle">"Defense Information Systems Agency Security Technical Implementation Guides"</span>, <span>n.d.</span>, <span>&lt;<a href="https://public.cyber.mil/stigs/">https://public.cyber.mil/stigs/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

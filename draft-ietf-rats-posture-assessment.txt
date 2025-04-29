@@ -165,21 +165,23 @@ Table of Contents
 
    By way of example, the Center for Internet Security (CIS) hosts
    recommended configuration settings to secure operating systems,
-   applications, and devices in CIS Benchmarks developed with industry
-   experts.  Attestations aligned to the CIS Benchmarks or other
-   configuration guide such as a DISA STIG could be used to assert the
-   configuration meets expectations.  This has already been done for
-   multiple platforms to demonstrate assurance for firmware according to
-   NIST SP 800-193, Firmware Resiliency Guidelines [FIRMWARE].  In order
-   to scale remote attestation, a single attestation for a set of
-   benchmarks or policies being met with a link to the verification logs
-   from the local assessments, is the evidence that may be sent to the
-   verifier and then the relying party.  On traditional servers,
-   assurance to NIST SP 800-193 is provable through attestation from a
-   root of trust (RoT), using the Trusted Computing Group (TCG) Trusted
-   Platform Module (TPM) chip and attestation formats.  However, this
-   remains local and one knows the policies and measurements have been
-   met if other functions that rely on the assurance are running.
+   applications, and devices in CIS Benchmarks [BENCHMARKS] developed
+   with industry experts.  Attestations aligned to the CIS Benchmarks or
+   other configuration guide such as one of the Defense Information
+   Systems Agency's Security Technical Implement Guides [STIG] could be
+   used to assert the configuration meets expectations.  This has
+   already been done for multiple platforms to demonstrate assurance for
+   firmware according to NIST SP 800-193, Firmware Resiliency Guidelines
+   [FIRMWARE].  In order to scale remote attestation, a single
+   attestation for a set of benchmarks or policies being met with a link
+   to the verification logs from the local assessments, is the evidence
+   that may be sent to the verifier and then the relying party.  On
+   traditional servers, assurance to NIST SP 800-193 is provable through
+   attestation from a root of trust (RoT), using the Trusted Computing
+   Group (TCG) Trusted Platform Module (TPM) chip and attestation
+   formats.  However, this remains local and one knows the policies and
+   measurements have been met if other functions that rely on the
+   assurance are running.
 
    At boot, policy and measurement expectations are verified against a
    set of "golden policies" from collected evidence and are verified to
@@ -506,6 +508,10 @@ Table of Contents
 
 10.2.  Informative References
 
+   [BENCHMARKS]
+              "Center for Internet Security Benchmarks List", n.d.,
+              <https://www.cisecurity.org/cis-benchmarks>.
+
    [FIRMWARE] Regenscheid, A., "Platform firmware resiliency
               guidelines", National Institute of Standards and
               Technology, DOI 10.6028/nist.sp.800-193, May 2018,
@@ -519,6 +525,10 @@ Table of Contents
               Oriented Lightweight Information Exchange (ROLIE)",
               RFC 8322, DOI 10.17487/RFC8322, February 2018,
               <https://www.rfc-editor.org/rfc/rfc8322>.
+
+   [STIG]     "Defense Information Systems Agency Security Technical
+              Implementation Guides", n.d.,
+              <https://public.cyber.mil/stigs/>.
 
 Contributors
 

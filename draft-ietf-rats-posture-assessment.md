@@ -70,6 +70,12 @@ informative:
   REDFISH:
     target: https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.20.0.pdf
     title: Redfish Specification Version 1.20.0
+  STIG:
+    target: https://public.cyber.mil/stigs/
+    title: Defense Information Systems Agency Security Technical Implementation Guides
+  BENCHMARKS:
+    target: https://www.cisecurity.org/cis-benchmarks
+    title: Center for Internet Security Benchmarks List
 
 --- abstract
 
@@ -111,8 +117,8 @@ This provides transparency on posture assessment results summarized with remote 
 
 # Posture Assessment Scenarios
 
-By way of example, the Center for Internet Security (CIS) hosts recommended configuration settings to secure operating systems, applications, and devices in CIS Benchmarks developed with industry experts.
-Attestations aligned to the CIS Benchmarks or other configuration guide such as a DISA STIG could be used to assert the configuration meets expectations.
+By way of example, the Center for Internet Security (CIS) hosts recommended configuration settings to secure operating systems, applications, and devices in CIS Benchmarks [BENCHMARKS] developed with industry experts.
+Attestations aligned to the CIS Benchmarks or other configuration guide such as one of the Defense Information Systems Agency's Security Technical Implement Guides [STIG] could be used to assert the configuration meets expectations.
 This has already been done for multiple platforms to demonstrate assurance for firmware according to NIST SP 800-193, Firmware Resiliency Guidelines [FIRMWARE].  In order to scale remote attestation, a single attestation for a set of benchmarks or policies being met with a link to the verification logs from the local assessments, is the evidence that may be sent to the verifier and then the relying party.
 On traditional servers, assurance to NIST SP 800-193 is provable through attestation from a root of trust (RoT), using the Trusted Computing Group (TCG) Trusted Platform Module (TPM) chip and attestation formats. However, this remains local and one knows the policies and measurements have been met if other functions that rely on the assurance are running.
 

@@ -5,12 +5,12 @@
 Network Working Group                                     K. M. Moriarty
 Internet-Draft                     Transforming Information Security LLC
 Intended status: Standards Track                              M. Wiseman
-Expires: 12 May 2025                                     Beyond Identity
+Expires: 31 October 2025                                 Beyond Identity
                                                               A.J. Stein
                                                                     NIST
                                                               C. Nelogal
                                                                     Dell
-                                                         8 November 2024
+                                                           29 April 2025
 
 
  Remote Posture Assessment for Systems, Containers, and Applications at
@@ -63,11 +63,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 May 2025.
+   This Internet-Draft will expire on 31 October 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -90,8 +90,11 @@ Table of Contents
    7.  Remediation
    8.  Security Considerations
    9.  IANA Considerations
-     9.1.  Additions to the JWT and CWT registries requested
-     9.2.  MPS (Measurement or Policy Set) Claim
+     9.1.  Reuse of CBOR and JSON Web Token (CWT and JWT) Claims
+           Registries
+     9.2.  CWT and JWT Claims Registered by This Document
+     9.3.  Additions to the JWT and CWT registries requested
+     9.4.  MPS (Measurement or Policy Set) Claim
    10. References
      10.1.  Normative References
      10.2.  Informative References
@@ -304,7 +307,7 @@ Table of Contents
 
    In the case of Re-Attestation:
 
-   *  framework needs to invalidate previous Reference Values (e.g.  TPM
+   *  framework needs to invalidate previous Reference Values (e.g. TPM
       PCR values and tokens),
 
    *  framework needs to specify an Appraisal Policy for Evidence that
@@ -367,9 +370,16 @@ Table of Contents
 
 9.  IANA Considerations
 
-   Draft section - authors know more work is needed to properly define
-   the registry and claims.  This section is here now to assist in
-   understanding the concepts.
+9.1.  Reuse of CBOR and JSON Web Token (CWT and JWT) Claims Registries
+
+   Claims defined in this document are a profile of EAT.  Like the base
+   claims of EAT, the claims below are compatible with those of CWT and
+   JWT so the CWT and JWT Claims Registries, [IANA.CWT.Claims] and
+   [IANA.JWT.Claims], are re-used.  No new IANA registry is created.
+   All EAT claims defined in this document are placed in both
+   registries.
+
+9.2.  CWT and JWT Claims Registered by This Document
 
    This document requests the creation of a Measurement and Policy Set
    (MPS) registry.  The MPS registry will contain the names of the
@@ -394,7 +404,7 @@ Table of Contents
    distinct policy or measurement sets and definitions of those sets
    (including the supporting formats used to write the definitions).
 
-9.1.  Additions to the JWT and CWT registries requested
+9.3.  Additions to the JWT and CWT registries requested
 
    This document requests the following JWT claims per the specification
    requirement required for the JSON Web Token (JWT) registry defined in
@@ -418,7 +428,7 @@ Table of Contents
 
                                   Table 3
 
-9.2.  MPS (Measurement or Policy Set) Claim
+9.4.  MPS (Measurement or Policy Set) Claim
 
    The MPS (Measurement or Policy Set) claim identifies the policy and
    measurement set being reported.  The MPS MAY be registered to the MPS
@@ -463,6 +473,14 @@ Table of Contents
               Progress, Internet-Draft, draft-ietf-rats-eat-31, 6
               September 2024, <https://datatracker.ietf.org/doc/html/
               draft-ietf-rats-eat-31>.
+
+   [IANA.CWT.Claims]
+              IANA, "CBOR Web Token (CWT) Claims",
+              <https://www.iana.org/assignments/cwt>.
+
+   [IANA.JWT.Claims]
+              IANA, "JSON Web Token (JWT)",
+              <https://www.iana.org/assignments/jwt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,

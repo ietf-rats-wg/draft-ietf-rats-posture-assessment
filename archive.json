@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-01T01:05:19.015736+00:00",
+  "timestamp": "2025-06-01T01:13:50.786304+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -150,7 +150,7 @@
       "labels": [],
       "body": "### General thoughts\nIn general, the problem statement is not yet clear to me. I think a figure in Sec. 1 and defining some terms in Sec. 2 would help. \n\nIn the scope of this document, I would like to understand:\n\n- What is the need/motivation for attestation?\n- Who is attesting to whom? \n- Is it local attestation or remote attestation? \n- Compliance is mentioned multiple times in the draft, and I believe there is no \"global\" compliance; compliance is with reference to a specific regulation. It remains unclear to me which regulation is intended. \n- I am specifically concerned about protocols. Where in this whole assessment process do the protocols get checked? \n\n### Specific questions\nNote: Emphasis in the quoted text is my own \n\n> By using **policy** and **measurement sets** that may be offered at various assurance levels, **local assessment of evidence** can be performed to continuously assess **compliance**.\n\n- Which policy is this related to: policy for Evidence or Attestation Results? \n- measurement sets: are these Claims or Reference Values? If the former, does it include runtime measurements or just loadtime measurements?\n- local assessment of evidence: is the draft about local attestation or remote attestation?\n- compliance: compliance with what?\n\n> this kind of **compliance**\n\ncompliance with what?\n\n> The **local** system or server host performs the assessment of posture and remediation.\n\nSeems local attestation to me, I am not sure why remote attestation is mentioned in the draft. \n\n> This document describes a method to use existing remote attestation formats and **protocols**.\n\nThis was very interesting for me. But unfortunately, there is no other mention of protocols in the rest of the document. ",
       "createdAt": "2025-01-25T20:03:35Z",
-      "updatedAt": "2025-01-28T05:58:29Z",
+      "updatedAt": "2025-05-30T12:47:37Z",
       "closedAt": null,
       "comments": [
         {
@@ -166,6 +166,13 @@
           "body": "Re @muhammad-usama-sardar's framing questions and specific questions, perhaps we can make some incremental edits and send them to him and the list for review and consideration to ensure we better answer those questions, @KME? We can work on that together if you'd like.",
           "createdAt": "2025-01-28T05:58:28Z",
           "updatedAt": "2025-01-28T05:58:28Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "body": "> Which protocols? Are you asking because of TLS Attestation?\n\nI was referring to the last paragraph of Introduction: \n> This document describes a method to use existing remote attestation\n   formats and protocols.\n\n\nAs a general feedback, the draft is currently really hard to read for me. The abstract claims \"architectural pattern\" but there is no diagram on architecture in the draft. The word \"Attester\" is never used in the draft. It would be helpful to map the terminology to RATS terminology and add a figure showing the architectural changes compared to 9334. Perhaps the introduction can give a very simple example as motivation of this work. ",
+          "createdAt": "2025-05-30T12:47:36Z",
+          "updatedAt": "2025-05-30T12:47:36Z"
         }
       ]
     }

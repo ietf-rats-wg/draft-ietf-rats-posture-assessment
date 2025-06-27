@@ -242,14 +242,13 @@ The MPS (Measurement or Policy Set) claim identifies the policy and measurement 
 
 This document requests the following CWT claims per the specification requirement required for the CBOR Web Token (CWT) registry defined in RFC8392.
 
-| Claim | Long Name                  | Claim Description                | JWT Claim Name |
-|-------|----------------------------|----------------------------------|----------------|
-| MPS   | Measurement or Policy Set  | Name for the MPS                 | MPS            |
-| LEM   | Log Evidence of MPS        | Log File or URI                  | LEM            |
-| PCR   | TPM PCR Values             | URI                              | PCR            |
-| FMA   | Format of MPS Attestations | Format of included attestations  | FMA            |
-| HSH   | Hash Value/Message Digest  | Hash value of claim-set          | HSH            |
-
+| Platform | Claim | Long Name                  | Claim Description                | Format |
+|----------|-------|----------------------------|----------------------------------|--------|
+|          | mps   | Measurement or Policy Set  | Name for the MPS                 |        |
+|          | lem   | Log Evidence of MPS        | Log File or URI                  |        |
+|          | pcr   | TPM PCR Values             | URI                              |        |
+|          | fma   | Format of MPS Attestations | Format of included attestations  |        |
+|          | hsh   | Hash Value/Message Digest  | Hash value of claim-set          |        |
 
 --- back
 

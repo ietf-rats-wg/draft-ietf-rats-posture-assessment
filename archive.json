@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-01T01:13:50.786304+00:00",
+  "timestamp": "2025-06-29T01:10:21.379012+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -264,6 +264,54 @@
         "oid": "e60a30b4a6136031cb1faf146725f84f3d3b2830"
       },
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDONMUyhM6cd1lc",
+      "title": "Update draft-ietf-rats-posture-assessment.md",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/9",
+      "state": "OPEN",
+      "author": "dwelski",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Update claims table.",
+      "createdAt": "2025-06-27T17:58:10Z",
+      "updatedAt": "2025-06-27T19:19:38Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "baseRefName": "main",
+      "baseRefOid": "9da3b3672b0bb2767db1e0709c58cc8ff95db309",
+      "headRepository": "dwelski/draft-ietf-rats-posture-assessment",
+      "headRefName": "patch-1",
+      "headRefOid": "675b3ba8301f2f5bc42697fbb10c77a6af4874ed",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi @KME I saw a comment on one of the commits (at https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/commit/675b3ba8301f2f5bc42697fbb10c77a6af4874ed#commitcomment-160973937). Since @dwelski is not an explicit member of the repository and, as far as GitHub is concerned, an \"outside contributor\" so to speak, either you or I had to approve taking the draft changes and allowing the GitHub Actions workflow to run. I just did that now.\r\n\r\nIf you do not want that on a case-by-case basis for Derek, you will want to go the URL below and add `dwelski` with at least write, or maybe maintain, permissions.\r\n\r\nhttps://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/setting/access\r\n\r\nLet me know if that is what you were describing or I misunderstood.",
+          "createdAt": "2025-06-27T18:37:50Z",
+          "updatedAt": "2025-06-27T18:37:50Z"
+        },
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, A.J.\r\n\r\nI believe that was just an addition or the word \"test\" into the text. It'll\r\nhave to get removed :-)\r\n\r\nLet's sync when you have a chance! Best of luck as you transition out of\r\nGSA!\r\n\r\nTake care,\r\nKathleen\r\n\r\nOn Fri, Jun 27, 2025 at 2:38\u202fPM A.J. Stein ***@***.***> wrote:\r\n\r\n> *aj-stein* left a comment\r\n> (ietf-rats-wg/draft-ietf-rats-posture-assessment#9)\r\n> <https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/9#issuecomment-3014046791>\r\n>\r\n> Hi @KME <https://github.com/KME> I saw a comment on one of the commits\r\n> (at 675b3ba#commitcomment-160973937\r\n> <https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/commit/675b3ba8301f2f5bc42697fbb10c77a6af4874ed#commitcomment-160973937>).\r\n> Since @dwelski <https://github.com/dwelski> is not an explicit member of\r\n> the repository and, as far as GitHub is concerned, an \"outside contributor\"\r\n> so to speak, either you or I had to approve taking the draft changes and\r\n> allowing the GitHub Actions workflow to run. I just did that now.\r\n>\r\n> If you do not want that on a case-by-case basis for Derek, you will want\r\n> to go the URL below and add dwelski with at least write, or maybe\r\n> maintain, permissions.\r\n>\r\n>\r\n> https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/setting/access\r\n>\r\n> Let me know if that is what you were describing or I misunderstood.\r\n>\r\n> \u2014\r\n> Reply to this email directly, view it on GitHub\r\n> <https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/9#issuecomment-3014046791>,\r\n> or unsubscribe\r\n> <https://github.com/notifications/unsubscribe-auth/ABCRJGATNF7XM2WRKJ7KUFT3FWFRLAVCNFSM6AAAAACAJTLVZCVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZTAMJUGA2DMNZZGE>\r\n> .\r\n> You are receiving this because you were mentioned.Message ID:\r\n> ***@***.***\r\n> .com>\r\n>\r\n\r\n\r\n-- \r\n\r\nBest regards,\r\nKathleen\r\n",
+          "createdAt": "2025-06-27T19:00:22Z",
+          "updatedAt": "2025-06-27T19:00:22Z"
+        },
+        {
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Thanks, A.J. I believe that was just an addition or the word \"test\" into the text. It'll have to get removed :-) Let's sync when you have a chance! Best of luck as you transition out of GSA! Take care, Kathleen\r\n\r\nYes, I encouraged him to experiment to understand how as a series of commits one change at a time get collected and reviewed collectively. We know that is a dummy commit, and we will be sure to get it removed before finalizing the table updates. He is still drafting this pull request and he labelled it thusly. He will likely remove it and let us know when it is ready. I am standing by to help him with it.\r\n\r\nFeel free to ask for any help, @dwelski, I get updates commit by commit.",
+          "createdAt": "2025-06-27T19:19:38Z",
+          "updatedAt": "2025-06-27T19:19:38Z"
+        }
+      ],
       "reviews": []
     }
   ]

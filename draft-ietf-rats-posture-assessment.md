@@ -251,7 +251,7 @@ This document requests the following CWT claims per the specification requiremen
 | HSH   | Hash Value/Message Digest  | Hash value of claim-set          | HSH            |
 
 
-### Table A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro
+### A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro
 
 | Platform     | Claim | Long Name                 | Claim Description (with RoT Mechanism)                                                                                                                                                                              | Format                                                                |
 |--------------|--------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|

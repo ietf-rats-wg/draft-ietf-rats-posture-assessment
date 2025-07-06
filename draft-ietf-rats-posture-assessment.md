@@ -252,7 +252,7 @@ This document requests the following CWT claims per the specification requiremen
 
 ## Appendix A – Extended Claims Table with RoT Variants
 
-### Table A.1 – Chained Attestation and Measurement Exposure Across Hardware Roots of Trust
+### A.1 – Chained Attestation and Measurement Exposure Across Hardware Roots of Trust
 
 | Platform       | Hardware Root of Trust         | Measurement Chaining | Attestation Evidence             | PCR/Measurement Exposure       |
 |----------------|-------------------------------|-----------------------|----------------------------------|--------------------------------|

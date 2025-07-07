@@ -95,14 +95,14 @@ Table of Contents
      9.2.  CWT and JWT Claims Registered by This Document
      9.3.  Additions to the JWT and CWT registries requested
      9.4.  MPS (Measurement or Policy Set) Claim
-     9.5.  Appendix A – Extended Claims Table with RoT Variants
-       9.5.1.  A.1 – Chained Attestation and Measurement Exposure
-               Across Hardware Roots of Trust
-       9.5.2.  A.2 – Extended Claims Table with DICE, Apple Secure
-               Enclave, OpenTitan, and Amazon Nitro
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+   10. Appendix A – Extended Claims Table with RoT Variants
+     10.1.  A.1 – Chained Attestation and Measurement Exposure Across
+            Hardware Roots of Trust
+     10.2.  A.2 – Extended Claims Table with DICE, Apple Secure
+            Enclave, OpenTitan, and Amazon Nitro
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Contributors
    Authors' Addresses
 
@@ -470,10 +470,10 @@ Table of Contents
 
                                  Table 4
 
-9.5.  Appendix A – Extended Claims Table with RoT Variants
+10.  Appendix A – Extended Claims Table with RoT Variants
 
-9.5.1.  A.1 – Chained Attestation and Measurement Exposure Across
-        Hardware Roots of Trust
+10.1.  A.1 – Chained Attestation and Measurement Exposure Across
+       Hardware Roots of Trust
 
    +=========+===========+=============+===============+==============+
    |Platform |Hardware   | Measurement | Attestation   | PCR/         |
@@ -507,8 +507,8 @@ Table of Contents
 
                                  Table 5
 
-9.5.2.  A.2 – Extended Claims Table with DICE, Apple Secure Enclave,
-        OpenTitan, and Amazon Nitro
+10.2.  A.2 – Extended Claims Table with DICE, Apple Secure Enclave,
+       OpenTitan, and Amazon Nitro
 
    +=========+=====+===========+=====================+=================+
    |Platform |Claim|Long Name  | Claim Description   |Format           |
@@ -656,9 +656,9 @@ Table of Contents
 
                                   Table 6
 
-10.  References
+11.  References
 
-10.1.  Normative References
+11.1.  Normative References
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
@@ -697,7 +697,7 @@ Table of Contents
               Architecture", RFC 9334, DOI 10.17487/RFC9334, January
               2023, <https://www.rfc-editor.org/rfc/rfc9334>.
 
-10.2.  Informative References
+11.2.  Informative References
 
    [BENCHMARKS]
               "Center for Internet Security Benchmarks List", n.d.,

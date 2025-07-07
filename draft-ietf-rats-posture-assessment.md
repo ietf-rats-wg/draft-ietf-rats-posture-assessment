@@ -250,6 +250,18 @@ This document requests the following CWT claims per the specification requiremen
 | FMA   | Format of MPS Attestations | Format of included attestations  | FMA            |
 | HSH   | Hash Value/Message Digest  | Hash value of claim-set          | HSH            |
 
+## Appendix A – Extended Claims Table with RoT Variants
+
+### A.1 – Chained Attestation and Measurement Exposure Across Hardware Roots of Trust
+
+| Platform       | Hardware Root of Trust         | Measurement Chaining | Attestation Evidence             | PCR/Measurement Exposure       |
+|----------------|-------------------------------|-----------------------|----------------------------------|--------------------------------|
+| DICE           | Minimal hardware + UDS        | Yes                   | Stage certificates, attestation chain | CDIs (not standard PCRs)       |
+| Apple          | Boot ROM & Secure Enclave     | Yes                   | Internal logs, biometric/auth evidence | Not standard PCRs (internal use) |
+| OpenTitan      | Open-source silicon chip      | Yes                   | Logs, certificates               | TPM-like PCRs                  |
+| Amazon Nitro   | Nitro Security Chip           | Yes                   | NitroTPM logs, AWS-signed attestation | NitroTPM PCRs                 |
+| Nitro Enclaves | Nitro Security Chip + Hypervisor | Yes                 | AWS-signed attestation tokens    | Enclave PCRs                   |
+
 
 ### A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro
 

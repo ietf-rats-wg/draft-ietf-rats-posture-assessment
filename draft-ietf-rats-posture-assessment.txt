@@ -5,12 +5,12 @@
 Network Working Group                                     K. M. Moriarty
 Internet-Draft                     Transforming Information Security LLC
 Intended status: Standards Track                              M. Wiseman
-Expires: 31 October 2025                                 Beyond Identity
+Expires: 8 January 2026                                  Beyond Identity
                                                               A.J. Stein
                                                                         
                                                               C. Nelogal
                                                                     Dell
-                                                           29 April 2025
+                                                             7 July 2025
 
 
  Remote Posture Assessment for Systems, Containers, and Applications at
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 October 2025.
+   This Internet-Draft will expire on 8 January 2026.
 
 Copyright Notice
 
@@ -95,6 +95,8 @@ Table of Contents
      9.2.  CWT and JWT Claims Registered by This Document
      9.3.  Additions to the JWT and CWT registries requested
      9.4.  MPS (Measurement or Policy Set) Claim
+       9.4.1.  A.2 – Extended Claims Table with DICE, Apple Secure
+               Enclave, OpenTitan, and Amazon Nitro
    10. References
      10.1.  Normative References
      10.2.  Informative References
@@ -464,6 +466,155 @@ Table of Contents
      +-------+----------------+--------------------+----------------+
 
                                  Table 4
+
+9.4.1.  A.2 – Extended Claims Table with DICE, Apple Secure Enclave,
+        OpenTitan, and Amazon Nitro
+
+   +=========+=====+===========+=====================+=================+
+   |Platform |Claim|Long Name  | Claim Description   |Format           |
+   |         |     |           | (with RoT           |                 |
+   |         |     |           | Mechanism)          |                 |
+   +=========+=====+===========+=====================+=================+
+   |DICE     |mps  |Measurement| DICE CDI lineage:   |CDI derivation   |
+   |         |     |or Policy  | Minimalist          |chain;           |
+   |         |     |Set        | hardware root of    |certificate-based|
+   |         |     |           | trust (UDS in ROM/  |attestation      |
+   |         |     |           | SoC), performs      |                 |
+   |         |     |           | measured boot,      |                 |
+   |         |     |           | derives Compound    |                 |
+   |         |     |           | Device Identifiers  |                 |
+   |         |     |           | (CDIs) at each      |                 |
+   |         |     |           | boot stage,         |                 |
+   |         |     |           | binding device and  |                 |
+   |         |     |           | firmware state.     |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |DICE     |lem  |Log        | Implementation-     |Log file,        |
+   |         |     |Evidence of| specific logs and   |attestation      |
+   |         |     |MPS        | attestation         |certificate, or  |
+   |         |     |           | certificates;       |URI              |
+   |         |     |           | evidence is the     |                 |
+   |         |     |           | chain of CDIs and   |                 |
+   |         |     |           | alias               |                 |
+   |         |     |           | certificates,       |                 |
+   |         |     |           | often used in TLS   |                 |
+   |         |     |           | client              |                 |
+   |         |     |           | authentication.     |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |DICE     |pcr  |TPM PCR    | Not applicable;     |—                |
+   |         |     |Values     | DICE does not use   |                 |
+   |         |     |           | TPM PCRs.           |                 |
+   |         |     |           | Instead, it uses    |                 |
+   |         |     |           | derived             |                 |
+   |         |     |           | cryptographic       |                 |
+   |         |     |           | identities (CDIs)   |                 |
+   |         |     |           | per boot stage.     |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |Apple    |mps  |Measurement| Secure Enclave      |Local attestation|
+   |         |     |or Policy  | root identity and   |(UID + monotonic |
+   |         |     |Set        | enclave             |counter); enclave|
+   |         |     |           | measurements:       |measurement logs |
+   |         |     |           | Hardware root of    |                 |
+   |         |     |           | trust (immutable    |                 |
+   |         |     |           | Boot ROM in SoC),   |                 |
+   |         |     |           | secure boot of SEP  |                 |
+   |         |     |           | OS, device-unique   |                 |
+   |         |     |           | UID, monotonic      |                 |
+   |         |     |           | counter for anti-   |                 |
+   |         |     |           | replay/rollback,    |                 |
+   |         |     |           | local attestation.  |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |Apple    |lem  |Log        | SEP logs, anti-     |Internal log file|
+   |         |     |Evidence of| replay/rollback     |or counter       |
+   |         |     |MPS        | counters, internal  |                 |
+   |         |     |           | secure boot logs    |                 |
+   |         |     |           | (not externally     |                 |
+   |         |     |           | exposed); used for  |                 |
+   |         |     |           | local security and  |                 |
+   |         |     |           | policy              |                 |
+   |         |     |           | enforcement.        |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |Apple    |pcr  |TPM PCR    | Not applicable;     |—                |
+   |         |     |Values     | Apple does not      |                 |
+   |         |     |           | expose TPM PCRs.    |                 |
+   |         |     |           | Integrity is        |                 |
+   |         |     |           | enforced using      |                 |
+   |         |     |           | UID, monotonic      |                 |
+   |         |     |           | counters, and       |                 |
+   |         |     |           | secure boot chain.  |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |OpenTitan|mps  |Measurement| Boot-time firmware  |Hardware-backed  |
+   |         |     |or Policy  | validation and      |attestation logs |
+   |         |     |Set        | Creator Identity    |and certificates |
+   |         |     |           | checks: Open-       |                 |
+   |         |     |           | source silicon      |                 |
+   |         |     |           | root of trust       |                 |
+   |         |     |           | (boot ROM in        |                 |
+   |         |     |           | silicon), measured  |                 |
+   |         |     |           | boot, stable        |                 |
+   |         |     |           | Creator Identity,   |                 |
+   |         |     |           | hardware-backed     |                 |
+   |         |     |           | key management,     |                 |
+   |         |     |           | remote              |                 |
+   |         |     |           | attestation.        |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |OpenTitan|lem  |Log        | Firmware integrity  |Certificate-based|
+   |         |     |Evidence of| logs, certificate-  |attestation, log |
+   |         |     |MPS        | based attestation,  |file             |
+   |         |     |           | logs tied to        |                 |
+   |         |     |           | Creator Identity    |                 |
+   |         |     |           | and measured boot   |                 |
+   |         |     |           | state.              |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |OpenTitan|pcr  |TPM PCR    | Custom attestation  |Hardware-backed  |
+   |         |     |Values     | logs; supports      |boot state, TPM- |
+   |         |     |           | TPM-like PCRs for   |like PCRs        |
+   |         |     |           | remote              |                 |
+   |         |     |           | attestation, but    |                 |
+   |         |     |           | uses a stable       |                 |
+   |         |     |           | Creator Identity    |                 |
+   |         |     |           | rather than         |                 |
+   |         |     |           | evolving device     |                 |
+   |         |     |           | identity at each    |                 |
+   |         |     |           | firmware layer.     |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |Amazon   |mps  |Measurement| Secure boot and     |NitroTPM PCR     |
+   |Nitro    |     |or Policy  | firmware            |values, AWS-     |
+   |         |     |Set        | validation: Nitro   |signed           |
+   |         |     |           | Security Chip as    |attestation      |
+   |         |     |           | hardware root of    |                 |
+   |         |     |           | trust, NitroTPM     |                 |
+   |         |     |           | provides virtual    |                 |
+   |         |     |           | TPM instance with   |                 |
+   |         |     |           | PCRs, measured      |                 |
+   |         |     |           | boot, and remote    |                 |
+   |         |     |           | attestation for     |                 |
+   |         |     |           | cloud servers and   |                 |
+   |         |     |           | Nitro Enclaves.     |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |Amazon   |lem  |Log        | NitroTPM logs,      |AWS-signed       |
+   |Nitro    |     |Evidence of| attestation         |attestation,     |
+   |         |     |MPS        | evidence, logs      |NitroTPM log file|
+   |         |     |           | signed by AWS;      |                 |
+   |         |     |           | used for remote     |                 |
+   |         |     |           | attestation and     |                 |
+   |         |     |           | verification of     |                 |
+   |         |     |           | cloud instance or   |                 |
+   |         |     |           | enclave state.      |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+   |Amazon   |pcr  |TPM PCR    | NitroTPM PCR        |Cryptographically|
+   |Nitro    |     |Values     | values              |signed PCR       |
+   |         |     |           | (cryptographically  |values, standard |
+   |         |     |           | signed, used for    |TPM 2.0 format   |
+   |         |     |           | attestation and     |                 |
+   |         |     |           | sealing secrets to  |                 |
+   |         |     |           | boot state);        |                 |
+   |         |     |           | standard TPM 2.0    |                 |
+   |         |     |           | interface for EC2   |                 |
+   |         |     |           | instances and       |                 |
+   |         |     |           | Nitro Enclaves.     |                 |
+   +---------+-----+-----------+---------------------+-----------------+
+
+                                  Table 5
 
 10.  References
 

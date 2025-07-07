@@ -13,21 +13,21 @@
        This document establishes an architectural pattern whereby a remote attestation could be issued for a complete set of benchmarks or controls that are defined and grouped by an external entity, eliminating the need to send over individual attestations for each item within a benchmark or control framework.
 This document establishes a pattern to list sets of benchmarks and controls within CWT and JWT formats for use as an Entity Attestation Token (EAT). While the discussion below pertains mostly to TPM, other Roots of Trust such as TCG DICE, and non-TCG defined components will also be included. 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.29.0" name="generator">
 <meta content="draft-ietf-rats-posture-assessment-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.1
-    Python 3.12.10
+  xml2rfc 3.29.0
+    Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
-    lxml 5.3.0
-    platformdirs 4.3.7
+    lxml 5.3.1
+    platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
+    requests 2.32.4
+    setuptools 80.9.0
     wcwidth 0.2.13
 -->
 <link href="draft-ietf-rats-posture-assessment.xml" rel="alternate" type="application/rfc+xml">
@@ -1047,11 +1047,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RPASCA</td>
-<td class="right">April 2025</td>
+<td class="right">July 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Moriarty, et al.</td>
-<td class="center">Expires 31 October 2025</td>
+<td class="center">Expires 8 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-rats-posture-assessment-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-29" class="published">29 April 2025</time>
+<time datetime="2025-07-07" class="published">7 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-10-31">31 October 2025</time></dd>
+<dd class="expires"><time datetime="2026-01-08">8 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1131,7 +1131,7 @@ This document establishes a pattern to list sets of benchmarks and controls with
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 31 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1198,6 +1198,11 @@ This document establishes a pattern to list sets of benchmarks and controls with
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4">
                 <p id="section-toc.1-1.9.2.4.1"><a href="#section-9.4" class="auto internal xref">9.4</a>.  <a href="#name-mps-measurement-or-policy-s" class="internal xref">MPS (Measurement or Policy Set) Claim</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4.2.1">
+                    <p id="section-toc.1-1.9.2.4.2.1.1"><a href="#section-9.4.1" class="auto internal xref">9.4.1</a>.  <a href="#name-a2-extended-claims-table-wi" class="internal xref">A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1565,6 +1570,111 @@ This document does not add security consideration over what has been described i
             </tr>
           </tbody>
         </table>
+<div id="a2-extended-claims-table-with-dice-apple-secure-enclave-opentitan-and-amazon-nitro">
+<section id="section-9.4.1">
+          <h4 id="name-a2-extended-claims-table-wi">
+<a href="#section-9.4.1" class="section-number selfRef">9.4.1. </a><a href="#name-a2-extended-claims-table-wi" class="section-name selfRef">A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro</a>
+          </h4>
+<table class="center" id="table-5">
+            <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Platform</th>
+                <th class="text-left" rowspan="1" colspan="1">Claim</th>
+                <th class="text-left" rowspan="1" colspan="1">Long Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Claim Description (with RoT Mechanism)</th>
+                <th class="text-left" rowspan="1" colspan="1">Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">DICE</td>
+                <td class="text-left" rowspan="1" colspan="1">mps</td>
+                <td class="text-left" rowspan="1" colspan="1">Measurement or Policy Set</td>
+                <td class="text-left" rowspan="1" colspan="1">DICE CDI lineage: Minimalist hardware root of trust (UDS in ROM/SoC), performs measured boot, derives Compound Device Identifiers (CDIs) at each boot stage, binding device and firmware state.</td>
+                <td class="text-left" rowspan="1" colspan="1">CDI derivation chain; certificate-based attestation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">DICE</td>
+                <td class="text-left" rowspan="1" colspan="1">lem</td>
+                <td class="text-left" rowspan="1" colspan="1">Log Evidence of MPS</td>
+                <td class="text-left" rowspan="1" colspan="1">Implementation-specific logs and attestation certificates; evidence is the chain of CDIs and alias certificates, often used in TLS client authentication.</td>
+                <td class="text-left" rowspan="1" colspan="1">Log file, attestation certificate, or URI</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">DICE</td>
+                <td class="text-left" rowspan="1" colspan="1">pcr</td>
+                <td class="text-left" rowspan="1" colspan="1">TPM PCR Values</td>
+                <td class="text-left" rowspan="1" colspan="1">Not applicable; DICE does not use TPM PCRs. Instead, it uses derived cryptographic identities (CDIs) per boot stage.</td>
+                <td class="text-left" rowspan="1" colspan="1">—</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Apple</td>
+                <td class="text-left" rowspan="1" colspan="1">mps</td>
+                <td class="text-left" rowspan="1" colspan="1">Measurement or Policy Set</td>
+                <td class="text-left" rowspan="1" colspan="1">Secure Enclave root identity and enclave measurements: Hardware root of trust (immutable Boot ROM in SoC), secure boot of SEP OS, device-unique UID, monotonic counter for anti-replay/rollback, local attestation.</td>
+                <td class="text-left" rowspan="1" colspan="1">Local attestation (UID + monotonic counter); enclave measurement logs</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Apple</td>
+                <td class="text-left" rowspan="1" colspan="1">lem</td>
+                <td class="text-left" rowspan="1" colspan="1">Log Evidence of MPS</td>
+                <td class="text-left" rowspan="1" colspan="1">SEP logs, anti-replay/rollback counters, internal secure boot logs (not externally exposed); used for local security and policy enforcement.</td>
+                <td class="text-left" rowspan="1" colspan="1">Internal log file or counter</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Apple</td>
+                <td class="text-left" rowspan="1" colspan="1">pcr</td>
+                <td class="text-left" rowspan="1" colspan="1">TPM PCR Values</td>
+                <td class="text-left" rowspan="1" colspan="1">Not applicable; Apple does not expose TPM PCRs. Integrity is enforced using UID, monotonic counters, and secure boot chain.</td>
+                <td class="text-left" rowspan="1" colspan="1">—</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OpenTitan</td>
+                <td class="text-left" rowspan="1" colspan="1">mps</td>
+                <td class="text-left" rowspan="1" colspan="1">Measurement or Policy Set</td>
+                <td class="text-left" rowspan="1" colspan="1">Boot-time firmware validation and Creator Identity checks: Open-source silicon root of trust (boot ROM in silicon), measured boot, stable Creator Identity, hardware-backed key management, remote attestation.</td>
+                <td class="text-left" rowspan="1" colspan="1">Hardware-backed attestation logs and certificates</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OpenTitan</td>
+                <td class="text-left" rowspan="1" colspan="1">lem</td>
+                <td class="text-left" rowspan="1" colspan="1">Log Evidence of MPS</td>
+                <td class="text-left" rowspan="1" colspan="1">Firmware integrity logs, certificate-based attestation, logs tied to Creator Identity and measured boot state.</td>
+                <td class="text-left" rowspan="1" colspan="1">Certificate-based attestation, log file</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OpenTitan</td>
+                <td class="text-left" rowspan="1" colspan="1">pcr</td>
+                <td class="text-left" rowspan="1" colspan="1">TPM PCR Values</td>
+                <td class="text-left" rowspan="1" colspan="1">Custom attestation logs; supports TPM-like PCRs for remote attestation, but uses a stable Creator Identity rather than evolving device identity at each firmware layer.</td>
+                <td class="text-left" rowspan="1" colspan="1">Hardware-backed boot state, TPM-like PCRs</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Amazon Nitro</td>
+                <td class="text-left" rowspan="1" colspan="1">mps</td>
+                <td class="text-left" rowspan="1" colspan="1">Measurement or Policy Set</td>
+                <td class="text-left" rowspan="1" colspan="1">Secure boot and firmware validation: Nitro Security Chip as hardware root of trust, NitroTPM provides virtual TPM instance with PCRs, measured boot, and remote attestation for cloud servers and Nitro Enclaves.</td>
+                <td class="text-left" rowspan="1" colspan="1">NitroTPM PCR values, AWS-signed attestation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Amazon Nitro</td>
+                <td class="text-left" rowspan="1" colspan="1">lem</td>
+                <td class="text-left" rowspan="1" colspan="1">Log Evidence of MPS</td>
+                <td class="text-left" rowspan="1" colspan="1">NitroTPM logs, attestation evidence, logs signed by AWS; used for remote attestation and verification of cloud instance or enclave state.</td>
+                <td class="text-left" rowspan="1" colspan="1">AWS-signed attestation, NitroTPM log file</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Amazon Nitro</td>
+                <td class="text-left" rowspan="1" colspan="1">pcr</td>
+                <td class="text-left" rowspan="1" colspan="1">TPM PCR Values</td>
+                <td class="text-left" rowspan="1" colspan="1">NitroTPM PCR values (cryptographically signed, used for attestation and sealing secrets to boot state); standard TPM 2.0 interface for EC2 instances and Nitro Enclaves.</td>
+                <td class="text-left" rowspan="1" colspan="1">Cryptographically signed PCR values, standard TPM 2.0 format</td>
+              </tr>
+            </tbody>
+          </table>
+</section>
+</div>
 </section>
 </div>
 </section>

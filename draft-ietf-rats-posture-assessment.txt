@@ -95,7 +95,10 @@ Table of Contents
      9.2.  CWT and JWT Claims Registered by This Document
      9.3.  Additions to the JWT and CWT registries requested
      9.4.  MPS (Measurement or Policy Set) Claim
-       9.4.1.  A.2 – Extended Claims Table with DICE, Apple Secure
+     9.5.  Appendix A – Extended Claims Table with RoT Variants
+       9.5.1.  A.1 – Chained Attestation and Measurement Exposure
+               Across Hardware Roots of Trust
+       9.5.2.  A.2 – Extended Claims Table with DICE, Apple Secure
                Enclave, OpenTitan, and Amazon Nitro
    10. References
      10.1.  Normative References
@@ -467,7 +470,44 @@ Table of Contents
 
                                  Table 4
 
-9.4.1.  A.2 – Extended Claims Table with DICE, Apple Secure Enclave,
+9.5.  Appendix A – Extended Claims Table with RoT Variants
+
+9.5.1.  A.1 – Chained Attestation and Measurement Exposure Across
+        Hardware Roots of Trust
+
+   +=========+===========+=============+===============+==============+
+   |Platform |Hardware   | Measurement | Attestation   | PCR/         |
+   |         |Root of    | Chaining    | Evidence      | Measurement  |
+   |         |Trust      |             |               | Exposure     |
+   +=========+===========+=============+===============+==============+
+   |DICE     |Minimal    | Yes         | Stage         | CDIs (not    |
+   |         |hardware + |             | certificates, | standard     |
+   |         |UDS        |             | attestation   | PCRs)        |
+   |         |           |             | chain         |              |
+   +---------+-----------+-------------+---------------+--------------+
+   |Apple    |Boot ROM & | Yes         | Internal      | Not standard |
+   |         |Secure     |             | logs,         | PCRs         |
+   |         |Enclave    |             | biometric/    | (internal    |
+   |         |           |             | auth evidence | use)         |
+   +---------+-----------+-------------+---------------+--------------+
+   |OpenTitan|Open-source| Yes         | Logs,         | TPM-like     |
+   |         |silicon    |             | certificates  | PCRs         |
+   |         |chip       |             |               |              |
+   +---------+-----------+-------------+---------------+--------------+
+   |Amazon   |Nitro      | Yes         | NitroTPM      | NitroTPM     |
+   |Nitro    |Security   |             | logs, AWS-    | PCRs         |
+   |         |Chip       |             | signed        |              |
+   |         |           |             | attestation   |              |
+   +---------+-----------+-------------+---------------+--------------+
+   |Nitro    |Nitro      | Yes         | AWS-signed    | Enclave PCRs |
+   |Enclaves |Security   |             | attestation   |              |
+   |         |Chip +     |             | tokens        |              |
+   |         |Hypervisor |             |               |              |
+   +---------+-----------+-------------+---------------+--------------+
+
+                                 Table 5
+
+9.5.2.  A.2 – Extended Claims Table with DICE, Apple Secure Enclave,
         OpenTitan, and Amazon Nitro
 
    +=========+=====+===========+=====================+=================+
@@ -614,7 +654,7 @@ Table of Contents
    |         |     |           | Nitro Enclaves.     |                 |
    +---------+-----+-----------+---------------------+-----------------+
 
-                                  Table 5
+                                  Table 6
 
 10.  References
 

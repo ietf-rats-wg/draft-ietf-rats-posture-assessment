@@ -1198,9 +1198,15 @@ This document establishes a pattern to list sets of benchmarks and controls with
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4">
                 <p id="section-toc.1-1.9.2.4.1"><a href="#section-9.4" class="auto internal xref">9.4</a>.  <a href="#name-mps-measurement-or-policy-s" class="internal xref">MPS (Measurement or Policy Set) Claim</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.5">
+                <p id="section-toc.1-1.9.2.5.1"><a href="#section-9.5" class="auto internal xref">9.5</a>.  <a href="#name-appendix-a-extended-claims-" class="internal xref">Appendix A – Extended Claims Table with RoT Variants</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4.2.1">
-                    <p id="section-toc.1-1.9.2.4.2.1.1"><a href="#section-9.4.1" class="auto internal xref">9.4.1</a>.  <a href="#name-a2-extended-claims-table-wi" class="internal xref">A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.5.2.1">
+                    <p id="section-toc.1-1.9.2.5.2.1.1"><a href="#section-9.5.1" class="auto internal xref">9.5.1</a>.  <a href="#name-a1-chained-attestation-and-" class="internal xref">A.1 – Chained Attestation and Measurement Exposure Across Hardware Roots of Trust</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.5.2.2">
+                    <p id="section-toc.1-1.9.2.5.2.2.1"><a href="#section-9.5.2" class="auto internal xref">9.5.2</a>.  <a href="#name-a2-extended-claims-table-wi" class="internal xref">A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro</a></p>
 </li>
                 </ul>
 </li>
@@ -1570,13 +1576,76 @@ This document does not add security consideration over what has been described i
             </tr>
           </tbody>
         </table>
-<div id="a2-extended-claims-table-with-dice-apple-secure-enclave-opentitan-and-amazon-nitro">
-<section id="section-9.4.1">
-          <h4 id="name-a2-extended-claims-table-wi">
-<a href="#section-9.4.1" class="section-number selfRef">9.4.1. </a><a href="#name-a2-extended-claims-table-wi" class="section-name selfRef">A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro</a>
+</section>
+</div>
+<div id="appendix-a-extended-claims-table-with-rot-variants">
+<section id="section-9.5">
+        <h3 id="name-appendix-a-extended-claims-">
+<a href="#section-9.5" class="section-number selfRef">9.5. </a><a href="#name-appendix-a-extended-claims-" class="section-name selfRef">Appendix A – Extended Claims Table with RoT Variants</a>
+        </h3>
+<div id="a1-chained-attestation-and-measurement-exposure-across-hardware-roots-of-trust">
+<section id="section-9.5.1">
+          <h4 id="name-a1-chained-attestation-and-">
+<a href="#section-9.5.1" class="section-number selfRef">9.5.1. </a><a href="#name-a1-chained-attestation-and-" class="section-name selfRef">A.1 – Chained Attestation and Measurement Exposure Across Hardware Roots of Trust</a>
           </h4>
 <table class="center" id="table-5">
             <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Platform</th>
+                <th class="text-left" rowspan="1" colspan="1">Hardware Root of Trust</th>
+                <th class="text-left" rowspan="1" colspan="1">Measurement Chaining</th>
+                <th class="text-left" rowspan="1" colspan="1">Attestation Evidence</th>
+                <th class="text-left" rowspan="1" colspan="1">PCR/Measurement Exposure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">DICE</td>
+                <td class="text-left" rowspan="1" colspan="1">Minimal hardware + UDS</td>
+                <td class="text-left" rowspan="1" colspan="1">Yes</td>
+                <td class="text-left" rowspan="1" colspan="1">Stage certificates, attestation chain</td>
+                <td class="text-left" rowspan="1" colspan="1">CDIs (not standard PCRs)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Apple</td>
+                <td class="text-left" rowspan="1" colspan="1">Boot ROM &amp; Secure Enclave</td>
+                <td class="text-left" rowspan="1" colspan="1">Yes</td>
+                <td class="text-left" rowspan="1" colspan="1">Internal logs, biometric/auth evidence</td>
+                <td class="text-left" rowspan="1" colspan="1">Not standard PCRs (internal use)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OpenTitan</td>
+                <td class="text-left" rowspan="1" colspan="1">Open-source silicon chip</td>
+                <td class="text-left" rowspan="1" colspan="1">Yes</td>
+                <td class="text-left" rowspan="1" colspan="1">Logs, certificates</td>
+                <td class="text-left" rowspan="1" colspan="1">TPM-like PCRs</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Amazon Nitro</td>
+                <td class="text-left" rowspan="1" colspan="1">Nitro Security Chip</td>
+                <td class="text-left" rowspan="1" colspan="1">Yes</td>
+                <td class="text-left" rowspan="1" colspan="1">NitroTPM logs, AWS-signed attestation</td>
+                <td class="text-left" rowspan="1" colspan="1">NitroTPM PCRs</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Nitro Enclaves</td>
+                <td class="text-left" rowspan="1" colspan="1">Nitro Security Chip + Hypervisor</td>
+                <td class="text-left" rowspan="1" colspan="1">Yes</td>
+                <td class="text-left" rowspan="1" colspan="1">AWS-signed attestation tokens</td>
+                <td class="text-left" rowspan="1" colspan="1">Enclave PCRs</td>
+              </tr>
+            </tbody>
+          </table>
+</section>
+</div>
+<div id="a2-extended-claims-table-with-dice-apple-secure-enclave-opentitan-and-amazon-nitro">
+<section id="section-9.5.2">
+          <h4 id="name-a2-extended-claims-table-wi">
+<a href="#section-9.5.2" class="section-number selfRef">9.5.2. </a><a href="#name-a2-extended-claims-table-wi" class="section-name selfRef">A.2 – Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro</a>
+          </h4>
+<table class="center" id="table-6">
+            <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">Platform</th>

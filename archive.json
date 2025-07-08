@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:10:21.379012+00:00",
+  "timestamp": "2025-07-08T01:03:56.002432+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -271,21 +271,21 @@
       "id": "PR_kwDONMUyhM6cd1lc",
       "title": "Update draft-ietf-rats-posture-assessment.md",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dwelski",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Update claims table.",
       "createdAt": "2025-06-27T17:58:10Z",
-      "updatedAt": "2025-06-27T19:19:38Z",
+      "updatedAt": "2025-07-06T16:52:53Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
       "baseRefName": "main",
       "baseRefOid": "9da3b3672b0bb2767db1e0709c58cc8ff95db309",
       "headRepository": "dwelski/draft-ietf-rats-posture-assessment",
       "headRefName": "patch-1",
       "headRefOid": "675b3ba8301f2f5bc42697fbb10c77a6af4874ed",
-      "closedAt": null,
+      "closedAt": "2025-07-06T16:52:53Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -310,9 +310,187 @@
           "body": "> Thanks, A.J. I believe that was just an addition or the word \"test\" into the text. It'll have to get removed :-) Let's sync when you have a chance! Best of luck as you transition out of GSA! Take care, Kathleen\r\n\r\nYes, I encouraged him to experiment to understand how as a series of commits one change at a time get collected and reviewed collectively. We know that is a dummy commit, and we will be sure to get it removed before finalizing the table updates. He is still drafting this pull request and he labelled it thusly. He will likely remove it and let us know when it is ready. I am standing by to help him with it.\r\n\r\nFeel free to ask for any help, @dwelski, I get updates commit by commit.",
           "createdAt": "2025-06-27T19:19:38Z",
           "updatedAt": "2025-06-27T19:19:38Z"
+        },
+        {
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Given the substantive work you did is in #10 and #11 and this is more of a practice PR, I am going to close this one out for now. Feel free to re-open if I misunderstood.",
+          "createdAt": "2025-07-06T16:52:53Z",
+          "updatedAt": "2025-07-06T16:52:53Z"
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDONMUyhM6dmerJ",
+      "title": "Update draft-ietf-rats-posture-assessment.md",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/10",
+      "state": "MERGED",
+      "author": "dwelski",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added \"Appendix A \u2013 Extended Claims Table: Table A.1\" which shows chained attestation and measurement exposure across various hardware  implementations.",
+      "createdAt": "2025-07-06T02:13:52Z",
+      "updatedAt": "2025-07-07T21:17:32Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "baseRefName": "main",
+      "baseRefOid": "1c908080104d80cd9a3f2a11dbcc966731a756e8",
+      "headRepository": "dwelski/draft-ietf-rats-posture-assessment",
+      "headRefName": "patch-2",
+      "headRefOid": "ac8940a6be08558e4fcf99b8936801c164cbfa08",
+      "closedAt": "2025-07-07T21:17:32Z",
+      "mergedAt": "2025-07-07T21:17:32Z",
+      "mergedBy": "aj-stein",
+      "mergeCommit": {
+        "oid": "1c97712f5db10ebca479b888f612525d68d42094"
+      },
+      "comments": [
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merge approved",
+          "createdAt": "2025-07-07T17:09:25Z",
+          "updatedAt": "2025-07-07T17:09:25Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDONMUyhM6yTskr",
+          "commit": {
+            "abbreviatedOid": "d81c254"
+          },
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me. I support merging the changes in this PR.",
+          "createdAt": "2025-07-06T16:46:08Z",
+          "updatedAt": "2025-07-06T16:46:08Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONMUyhM6yTtFh",
+          "commit": {
+            "abbreviatedOid": "d81c254"
+          },
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Wops, I take it back, one minor correction is necessary.",
+          "createdAt": "2025-07-06T16:48:46Z",
+          "updatedAt": "2025-07-06T16:49:07Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Sorry, I didn't realize this requirement for automated I-D builds, but you have to remove the keyword `Table` explicitly.\r\n\r\n```suggestion\r\n### A.1 \u2013 Chained Attestation and Measurement Exposure Across Hardware Roots of Trust\r\n```",
+              "createdAt": "2025-07-06T16:48:47Z",
+              "updatedAt": "2025-07-06T16:49:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONMUyhM6yVJ4J",
+          "commit": {
+            "abbreviatedOid": "f18a345"
+          },
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-07T01:02:53Z",
+          "updatedAt": "2025-07-07T01:02:53Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONMUyhM6yVR-k",
+          "commit": {
+            "abbreviatedOid": "f18a345"
+          },
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-07T01:39:52Z",
+          "updatedAt": "2025-07-07T01:39:52Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONMUyhM6ydgC5",
+          "commit": {
+            "abbreviatedOid": "f18a345"
+          },
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-07T14:11:12Z",
+          "updatedAt": "2025-07-07T14:11:12Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONMUyhM6yiJmc",
+          "commit": {
+            "abbreviatedOid": "ac8940a"
+          },
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I fixed the merge conflict, and still happy to accept these changes.",
+          "createdAt": "2025-07-07T21:17:14Z",
+          "updatedAt": "2025-07-07T21:17:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDONMUyhM6dmewI",
+      "title": "Update draft-ietf-rats-posture-assessment.md",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/11",
+      "state": "MERGED",
+      "author": "dwelski",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add A2. Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro",
+      "createdAt": "2025-07-06T02:14:29Z",
+      "updatedAt": "2025-07-07T01:05:39Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
+      "baseRefName": "main",
+      "baseRefOid": "9da3b3672b0bb2767db1e0709c58cc8ff95db309",
+      "headRepository": "dwelski/draft-ietf-rats-posture-assessment",
+      "headRefName": "patch-3",
+      "headRefOid": "1f9e6a3bb338347213a6aa34dd2c01a0b7e7fa64",
+      "closedAt": "2025-07-07T01:05:39Z",
+      "mergedAt": "2025-07-07T01:05:39Z",
+      "mergedBy": "KME",
+      "mergeCommit": {
+        "oid": "1c908080104d80cd9a3f2a11dbcc966731a756e8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONMUyhM6yTteI",
+          "commit": {
+            "abbreviatedOid": "7cc9896"
+          },
+          "author": "aj-stein",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2025-07-06T16:51:33Z",
+          "updatedAt": "2025-07-06T16:51:39Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Similar to feedback in https://github.com/ietf-rats-wg/draft-ietf-rats-posture-assessment/pull/10#discussion_r2188465681, you cannot explicitly use the word `Table` in a heading. Otherwise, it is solid.\r\n\r\n```suggestion\r\n### A.2 \u2013 Extended Claims Table with DICE, Apple Secure Enclave, OpenTitan, and Amazon Nitro\r\n```",
+              "createdAt": "2025-07-06T16:51:33Z",
+              "updatedAt": "2025-07-06T16:52:13Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

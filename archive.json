@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-08T01:03:56.002432+00:00",
+  "timestamp": "2025-07-20T01:13:21.884381+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-posture-assessment",
   "labels": [
     {
@@ -58,11 +58,13 @@
       "state": "OPEN",
       "author": "PieterKas",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "KME"
+      ],
       "labels": [],
       "body": "Section 3:\r\n\r\nunder stand -> understand",
       "createdAt": "2024-12-03T11:44:28Z",
-      "updatedAt": "2024-12-03T11:44:28Z",
+      "updatedAt": "2025-07-17T17:23:44Z",
       "closedAt": null,
       "comments": []
     },
@@ -74,11 +76,13 @@
       "state": "OPEN",
       "author": "PieterKas",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "KME"
+      ],
       "labels": [],
       "body": "Is there a reference that can be added for the CIS container security benchmarks? (e.g. https://www.cisecurity.org/benchmark/docker?utm_source=chatgpt.com, https://www.cisecurity.org/benchmark/kubernetes?utm_source=chatgpt.com)",
       "createdAt": "2024-12-03T11:50:48Z",
-      "updatedAt": "2024-12-03T14:14:50Z",
+      "updatedAt": "2025-07-17T17:23:29Z",
       "closedAt": null,
       "comments": [
         {
@@ -98,11 +102,13 @@
       "state": "OPEN",
       "author": "PieterKas",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "KME"
+      ],
       "labels": [],
       "body": "Will this specification define claim values based on container security benchmarks, or is the expectation that those values are defined in the MPS registry?",
       "createdAt": "2024-12-03T11:54:46Z",
-      "updatedAt": "2024-12-03T14:14:13Z",
+      "updatedAt": "2025-07-17T17:23:10Z",
       "closedAt": null,
       "comments": [
         {
@@ -122,11 +128,13 @@
       "state": "OPEN",
       "author": "PieterKas",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "KME"
+      ],
       "labels": [],
       "body": "Is the expectation that multiple benchmarks will be included in a single MPS, or will there be multiple MPS claims, each with their benchmark (e.g. an array of MPS claims).",
       "createdAt": "2024-12-03T12:03:05Z",
-      "updatedAt": "2024-12-03T14:09:49Z",
+      "updatedAt": "2025-07-17T17:27:05Z",
       "closedAt": null,
       "comments": [
         {
@@ -135,6 +143,13 @@
           "body": "The CIS Benchmarks and DISA STIGS would be quite large to combine. The current intention is to have an MPS represent a single Benchmark and potentially portions of a Benchmark if it makes more sense for some to be broken up into sections to test and complete comparison verifications.",
           "createdAt": "2024-12-03T14:09:36Z",
           "updatedAt": "2024-12-03T14:09:49Z"
+        },
+        {
+          "author": "KME",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I suspect the term benchmark is problematic in its use. CIS calls the entire set of recommendations across an application or operating system, including the risk assessment, a benchmark. I suspect most people think of a single control set at a specific level to be a benchmark. Is this a correct assumption? If so, I'll need to think about how to write this to make sense and perhaps avoid use of the work benchmark except when referring to the CIS Benchmarks as that's their naming.",
+          "createdAt": "2025-07-17T17:27:05Z",
+          "updatedAt": "2025-07-17T17:27:05Z"
         }
       ]
     },
@@ -146,11 +161,13 @@
       "state": "OPEN",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "KME"
+      ],
       "labels": [],
       "body": "### General thoughts\nIn general, the problem statement is not yet clear to me. I think a figure in Sec. 1 and defining some terms in Sec. 2 would help. \n\nIn the scope of this document, I would like to understand:\n\n- What is the need/motivation for attestation?\n- Who is attesting to whom? \n- Is it local attestation or remote attestation? \n- Compliance is mentioned multiple times in the draft, and I believe there is no \"global\" compliance; compliance is with reference to a specific regulation. It remains unclear to me which regulation is intended. \n- I am specifically concerned about protocols. Where in this whole assessment process do the protocols get checked? \n\n### Specific questions\nNote: Emphasis in the quoted text is my own \n\n> By using **policy** and **measurement sets** that may be offered at various assurance levels, **local assessment of evidence** can be performed to continuously assess **compliance**.\n\n- Which policy is this related to: policy for Evidence or Attestation Results? \n- measurement sets: are these Claims or Reference Values? If the former, does it include runtime measurements or just loadtime measurements?\n- local assessment of evidence: is the draft about local attestation or remote attestation?\n- compliance: compliance with what?\n\n> this kind of **compliance**\n\ncompliance with what?\n\n> The **local** system or server host performs the assessment of posture and remediation.\n\nSeems local attestation to me, I am not sure why remote attestation is mentioned in the draft. \n\n> This document describes a method to use existing remote attestation formats and **protocols**.\n\nThis was very interesting for me. But unfortunately, there is no other mention of protocols in the rest of the document. ",
       "createdAt": "2025-01-25T20:03:35Z",
-      "updatedAt": "2025-05-30T12:47:37Z",
+      "updatedAt": "2025-07-17T17:27:21Z",
       "closedAt": null,
       "comments": [
         {

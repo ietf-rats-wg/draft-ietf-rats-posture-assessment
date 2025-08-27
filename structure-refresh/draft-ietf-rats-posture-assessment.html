@@ -10,13 +10,15 @@
 <meta content="A.J. Stein" name="author">
 <meta content="Chandra Nelogal" name="author">
 <meta content="
-       This document establishes an architectural pattern whereby a remote attestation could be issued for a complete set of benchmarks or controls that are defined and grouped by an external entity, eliminating the need to send over individual attestations for each item within a benchmark or control framework.
-This document establishes a pattern to list sets of benchmarks and controls within CWT and JWT formats for use as an Entity Attestation Token (EAT). While the discussion below pertains mostly to TPM, other Roots of Trust such as TCG DICE, and non-TCG defined components will also be included. 
+       This document establishes an architectural pattern that extends an Attester's Trusted Computing Base (TCB) to include compliance benchmark tools or controls in order to improve trustworthiness assessments of an Attester.
+While the output of such benchmark tools can be included in Evidence as telemetry, that output can also be very voluminous.
+This documents specifies how to minimize the volume of benchmark telemetry in Evidence by limiting conveyed tool outputs to failed compliance tests whereby the expected compliance results are known to the Verifier as Reference Values.
+Additionally, new Claims for the Entity Attestation Token (EAT, RFC9711) are define and procedures to generate compliance telemetry in Evidence via Rorots of Trust, such as TCG TPMs or TCG DICE, are illustrated. 
     " name="description">
-<meta content="xml2rfc 3.29.0" name="generator">
+<meta content="xml2rfc 3.30.0" name="generator">
 <meta content="draft-ietf-rats-posture-assessment-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.29.0
+  xml2rfc 3.30.0
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1047,11 +1049,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RPASCA</td>
-<td class="right">July 2025</td>
+<td class="right">August 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Moriarty, et al.</td>
-<td class="center">Expires 8 January 2026</td>
+<td class="center">Expires 28 February 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1066,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-rats-posture-assessment-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-07" class="published">7 July 2025</time>
+<time datetime="2025-08-27" class="published">27 August 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-08">8 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-02-28">28 February 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1093,8 +1095,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Remote Posture Assessment for Systems, Containers, and Applications at Scale</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document establishes an architectural pattern whereby a remote attestation could be issued for a complete set of benchmarks or controls that are defined and grouped by an external entity, eliminating the need to send over individual attestations for each item within a benchmark or control framework.
-This document establishes a pattern to list sets of benchmarks and controls within CWT and JWT formats for use as an Entity Attestation Token (EAT). While the discussion below pertains mostly to TPM, other Roots of Trust such as TCG DICE, and non-TCG defined components will also be included.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document establishes an architectural pattern that extends an Attester's Trusted Computing Base (TCB) to include compliance benchmark tools or controls in order to improve trustworthiness assessments of an Attester.
+While the output of such benchmark tools can be included in Evidence as telemetry, that output can also be very voluminous.
+This documents specifies how to minimize the volume of benchmark telemetry in Evidence by limiting conveyed tool outputs to failed compliance tests whereby the expected compliance results are known to the Verifier as Reference Values.
+Additionally, new Claims for the Entity Attestation Token (EAT, RFC9711) are define and procedures to generate compliance telemetry in Evidence via Rorots of Trust, such as TCG TPMs or TCG DICE, are illustrated.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1131,7 +1135,7 @@ This document establishes a pattern to list sets of benchmarks and controls with
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 28 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1238,21 +1242,22 @@ This document establishes a pattern to list sets of benchmarks and controls with
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Posture assessment has long been desired, but has been difficult to achieve due to complexities of customization requirements at each organization.
-By using policy and measurement sets that may be offered at various assurance levels, local assessment of evidence can be performed to continuously assess compliance.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">For example, the Trusted Computing Group's Trusted Platform Module (TPM) format and assessment method can provide this kind of compliance.  This and other methods employ a secured log for transparency on the results of the assessed evidence against expected values.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">In order to support continuous monitoring of posture assessment and integrity in an enterprise or large data center, the local assessments and remediation are useful to reduce load on the network and remote resources.
-This is currently done today in measured boot mechanisms.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">It is useful to be able to share these results in order to gain a big picture view of the governance, risk, and compliance posture for a network.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5">As such, communicating a summary result as evidence tied including a link to supporting logs with a remote attestation defined in an Entity Attestation Token (EAT) profile <span>[<a href="#I-D.ietf-rats-eat" class="cite xref">I-D.ietf-rats-eat</a>]</span> provides a way to accomplish that goal.<a href="#section-1-5" class="pilcrow">¶</a></p>
-<p id="section-1-6">This level of integration, which includes the ability to remediate, makes posture assessment through remote attestation achievable for organizations of all sizes.  This is enabled through integration with existing toolsets and systems, built as an intrinsic capability.<a href="#section-1-6" class="pilcrow">¶</a></p>
-<p id="section-1-7">The measurement and policy grouping results summarized in an EAT profile may be provided by the vendor or by a neutral third party to enable ease of use and consistent implementations.<a href="#section-1-7" class="pilcrow">¶</a></p>
-<p id="section-1-8">The local system or server host performs the assessment of posture and remediation.
-This provides simpler options to enable posture assessment at selected levels by organizations without the need to have in-house expertise.<a href="#section-1-8" class="pilcrow">¶</a></p>
-<p id="section-1-9">The measurement and policy sets may also be customized, but not necessary to achieve posture assessment to predefined options.<a href="#section-1-9" class="pilcrow">¶</a></p>
-<p id="section-1-10">This document describes a method to use existing remote attestation formats and protocols.
+<p id="section-1-1">Automated posture assessment has been a long standing goal, but was difficult to achieve due to the complexities of customization requirements at each organization.
+By introducing policy and measurement sets, corresponding Reference Values for Verifiers can be derived and Evidence generation by Attesters can be optimized to only include compliance tool output for failed compliance test. To enable the conveyance of compliance tool output as trustworthy telemetry in Evidence, the compliance tools have to become part of an Attesters Trusted Computing Base (TCB).<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">By using policy and measurement sets that may be offered at various assurance levels, local assessment of evidence can be performed to continuously assess compliance.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">For example, the Trusted Computing Group's Trusted Platform Module (TPM) format and assessment method can provide this kind of compliance.  This and other methods employ a secured log for transparency on the results of the assessed evidence against expected values.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">In order to support continuous monitoring of posture assessment and integrity in an enterprise or large data center, the local assessments and remediation are useful to reduce load on the network and remote resources.
+This is currently done today in measured boot mechanisms.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">It is useful to be able to share these results in order to gain a big picture view of the governance, risk, and compliance posture for a network.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">As such, communicating a summary result as evidence tied including a link to supporting logs with a remote attestation defined in an Entity Attestation Token (EAT) profile <span>[<a href="#I-D.ietf-rats-eat" class="cite xref">I-D.ietf-rats-eat</a>]</span> provides a way to accomplish that goal.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">This level of integration, which includes the ability to remediate, makes posture assessment through remote attestation achievable for organizations of all sizes.  This is enabled through integration with existing toolsets and systems, built as an intrinsic capability.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-8">The measurement and policy grouping results summarized in an EAT profile may be provided by the vendor or by a neutral third party to enable ease of use and consistent implementations.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-9">The local system or server host performs the assessment of posture and remediation.
+This provides simpler options to enable posture assessment at selected levels by organizations without the need to have in-house expertise.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">The measurement and policy sets may also be customized, but not necessary to achieve posture assessment to predefined options.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<p id="section-1-11">This document describes a method to use existing remote attestation formats and protocols.
 The method described allows for defined profiles of policies, benchmarks, and measurements for specific assurance levels.
-This provides transparency on posture assessment results summarized with remote attestations.<a href="#section-1-10" class="pilcrow">¶</a></p>
+This provides transparency on posture assessment results summarized with remote attestations.<a href="#section-1-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">

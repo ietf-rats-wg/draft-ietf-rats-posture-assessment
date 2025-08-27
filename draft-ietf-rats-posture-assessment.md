@@ -5,7 +5,6 @@ title: Remote Posture Assessment for Systems, Containers, and Applications at Sc
 abbrev: RPASCA
 docname: draft-ietf-rats-posture-assessment-latest
 cat: std
-consensus: yes
 submissiontype: IETF
 number:
 date:
@@ -73,14 +72,24 @@ informative:
 
 --- abstract
 
-This document establishes an architectural pattern whereby a remote attestation could be issued for a complete set of benchmarks or controls that are defined and grouped by an external entity, eliminating the need to send over individual attestations for each item within a benchmark or control framework.
-This document establishes a pattern to list sets of benchmarks and controls within CWT and JWT formats for use as an Entity Attestation Token (EAT). While the discussion below pertains mostly to TPM, other Roots of Trust such as TCG DICE, and non-TCG defined components will also be included.
+This document establishes an architectural pattern that extends an Attester's Trusted Computing Base (TCB) to include compliance benchmark tools or controls in order to improve trustworthiness assessments of an Attester.
+While the output of such benchmark tools can be included in Evidence as telemetry, that output can also be very voluminous.
+This documents specifies how to minimize the volume of benchmark telemetry in Evidence by limiting conveyed tool outputs to failed compliance tests whereby the expected compliance results are known to the Verifier as Reference Values.
+Additionally, new Claims for the Entity Attestation Token (EAT, RFC9711) are define and procedures to generate compliance telemetry in Evidence via Rorots of Trust, such as TCG TPMs or TCG DICE, are illustrated.
 
 --- middle
 
 # Introduction
 
-Posture assessment has long been desired, but has been difficult to achieve due to complexities of customization requirements at each organization.
+Automated posture assessment has been a long standing goal, but was difficult to achieve due to the complexities of customization requirements at each organization.
+By introducing policy and measurement sets, corresponding Reference Values for Verifiers can be derived and Evidence generation by Attesters can be optimized to only include compliance tool output for failed compliance test. To enable the conveyance of compliance tool output as trustworthy telemetry in Evidence, the compliance tools have to become part of an Attesters Trusted Computing Base (TCB).
+
+<!--
+# Retention Area
+
+* To support not only boot-time attestation but also run-time attestation, continuous compliance assessment is required.
+-->
+
 By using policy and measurement sets that may be offered at various assurance levels, local assessment of evidence can be performed to continuously assess compliance.
 
 For example, the Trusted Computing Group's Trusted Platform Module (TPM) format and assessment method can provide this kind of compliance.  This and other methods employ a secured log for transparency on the results of the assessed evidence against expected values.
